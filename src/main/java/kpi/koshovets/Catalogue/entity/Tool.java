@@ -2,7 +2,6 @@ package kpi.koshovets.Catalogue.entity;
 
 import jakarta.persistence.*;
 
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,9 +16,11 @@ public class Tool {
     private String name;
 
     @OneToMany(mappedBy = "tool")
-    private Set<AutomationType> automationTypes;
+    @Column(name = "automation_type")
+    private Set<AutomationType> types;
 
     @OneToMany(mappedBy = "tool")
+    @Column(name = "tag")
     private Set<Tag> tags;
 
     public Tool() {
@@ -41,12 +42,12 @@ public class Tool {
         this.name = name;
     }
 
-    public Set<AutomationType> getAutomationTypes() {
-        return automationTypes;
+    public Set<AutomationType> getTypes() {
+        return types;
     }
 
-    public void setAutomationTypes(Set<AutomationType> automationTypes) {
-        this.automationTypes = automationTypes;
+    public void setTypes(Set<AutomationType> automationTypes) {
+        this.types = automationTypes;
     }
 
     public Set<Tag> getTags() {

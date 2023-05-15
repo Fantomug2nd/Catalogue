@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -31,9 +32,9 @@ public class ToolController {
     }
 
     @GetMapping (produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Set<ToolTO>> getAllTools(){
+    public ResponseEntity<List<ToolTO>> getAllTools(){
 
-        Set<Tool> tools = toolService.getAllTools();
+        List<Tool> tools = toolService.getAllTools();
 
     return ResponseEntity.ok(toolMapper.map(tools));
     }
