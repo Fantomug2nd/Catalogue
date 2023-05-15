@@ -1,7 +1,10 @@
 package kpi.koshovets.Catalogue.controller;
 
 import kpi.koshovets.Catalogue.dto.ToolTO;
-import org.apache.catalina.User;
+import kpi.koshovets.Catalogue.dto.UserTO;
+import kpi.koshovets.Catalogue.entity.User;
+import kpi.koshovets.Catalogue.mapper.UserMapper;
+import kpi.koshovets.Catalogue.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -34,9 +37,9 @@ public class UserController {
         userService.acceptRole(id);
     }
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Set<UserDTO>> getCandidates(){
+    public ResponseEntity<List<UserTO>> getCandidates(){
 
-        Set<User> candidates = userService.geteCandidates();
+        List<User> candidates = userService.getCandidates();
         return ResponseEntity.ok(userMapper.map(candidates));
     }
 }
