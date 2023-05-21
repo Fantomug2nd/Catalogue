@@ -1,6 +1,7 @@
 package kpi.koshovets.Catalogue.dto;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ToolTO {
     private String name;
@@ -49,5 +50,35 @@ public class ToolTO {
         this.description = description;
         this.tags = tags;
         this.types = types;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ToolTO toolTO)) return false;
+
+        if (!Objects.equals(name, toolTO.name)) return false;
+        if (!Objects.equals(description, toolTO.description)) return false;
+        if (!Objects.equals(tags, toolTO.tags)) return false;
+        return Objects.equals(types, toolTO.types);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (tags != null ? tags.hashCode() : 0);
+        result = 31 * result + (types != null ? types.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "ToolTO{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", tags=" + tags +
+                ", types=" + types +
+                '}';
     }
 }

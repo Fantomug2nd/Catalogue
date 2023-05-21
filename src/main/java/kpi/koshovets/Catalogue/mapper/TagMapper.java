@@ -1,5 +1,6 @@
 package kpi.koshovets.Catalogue.mapper;
 
+import kpi.koshovets.Catalogue.dto.TagTO;
 import kpi.koshovets.Catalogue.entity.Tag;
 import org.mapstruct.Mapper;
 
@@ -12,5 +13,5 @@ public interface TagMapper {
     
     List<Tag> map(List<TagTO>  tagTOs);
     
-    List<TagTO> map(List<Tag> tages);
+    List<TagTO> mapList(List<Tag> tages);
 }

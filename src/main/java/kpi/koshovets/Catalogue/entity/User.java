@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.List;
 import java.util.Set;
 
+@Entity
 @Table(name = "user", uniqueConstraints = {@UniqueConstraint(columnNames = {"login"})})
 public class User implements UserDetails {
 

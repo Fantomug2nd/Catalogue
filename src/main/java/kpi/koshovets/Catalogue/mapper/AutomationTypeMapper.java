@@ -1,5 +1,6 @@
 package kpi.koshovets.Catalogue.mapper;
 
+import kpi.koshovets.Catalogue.dto.AutomationTypeTO;
 import kpi.koshovets.Catalogue.dto.ToolTO;
 import kpi.koshovets.Catalogue.entity.AutomationType;
 import kpi.koshovets.Catalogue.entity.Tool;
@@ -14,5 +15,5 @@ public interface AutomationTypeMapper {
 
     List<AutomationType> map(List<AutomationTypeTO>  typeTOs);
 
-    List<AutomationTypeTO> map(List<AutomationType> types);
+    List<AutomationTypeTO> mapList(List<AutomationType> types);
 }

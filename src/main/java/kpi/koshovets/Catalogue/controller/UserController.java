@@ -21,7 +21,7 @@ public class UserController {
     @Autowired
     private UserMapper userMapper;
 
-    @PostMapping(
+    @PostMapping( path = "/request"
 //            produces = MediaType.APPLICATION_JSON_VALUE
             )
     public void requestRole(@RequestParam Long id){
@@ -29,7 +29,7 @@ public class UserController {
         userService.requestRole(id);
     }
 
-    @PostMapping(
+    @PostMapping(path = "/accept"
 //            produces = MediaType.APPLICATION_JSON_VALUE
     )
     public void acceptRole(@RequestParam Long id){
@@ -41,5 +41,10 @@ public class UserController {
 
         List<User> candidates = userService.getCandidates();
         return ResponseEntity.ok(userMapper.map(candidates));
+    }
+
+    @PostMapping(path = "user/create")
+    public void addUser(@RequestBody UserTO userTO){
+        userService.createUser(userMapper.map(userTO));
     }
 }

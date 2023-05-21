@@ -13,5 +13,5 @@ public interface ToolMapper {
 
     List<ToolTO> map(List<Tool> tools);
 
-    List<Tool> map(List<ToolTO> toolTO);
+    List<Tool> mapList(List<ToolTO> toolTO);
 }
