@@ -43,10 +43,11 @@ public class SecurityConfig  {
         return http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/registration","/metricOverview","/metric/{id}", "/", "/user/create")
-                .permitAll()
-                .and().authorizeHttpRequests().requestMatchers("getCandidates", "/acceptCandidate").authenticated()
-                .and().formLogin().and().build();
+//                .requestMatchers("/registration","/metricOverview","/metric/{id}", "/", "/user/create")
+                .requestMatchers("/*")
+                .permitAll().and().build();
+//                .and().authorizeHttpRequests().requestMatchers("getCandidates", "/acceptCandidate").authenticated()
+//                .and().formLogin().and().build();
     }
 
     @Bean

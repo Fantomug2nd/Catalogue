@@ -18,6 +18,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/metric")
+@CrossOrigin
 public class MetricController {
     @Autowired
     private MetricService metricService;

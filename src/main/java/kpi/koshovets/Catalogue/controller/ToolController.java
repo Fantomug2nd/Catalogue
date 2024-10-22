@@ -10,10 +10,12 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/tool")
 public class ToolController {
 
@@ -31,11 +33,12 @@ public class ToolController {
         toolService.saveTool(toolMapper.map(toolTO));
     }
 
-    @GetMapping (produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping
     public ResponseEntity<List<ToolTO>> getAllTools(){
 
-        List<Tool> tools = toolService.getAllTools();
+//        List<Tool> tools = toolService.getAllTools();
 
-    return ResponseEntity.ok(toolMapper.map(tools));
+//    return ResponseEntity.ok(toolMapper.map(tools));
+        return ResponseEntity.ok(Collections.singletonList(new ToolTO("name", null,null,null)));
     }
 }
